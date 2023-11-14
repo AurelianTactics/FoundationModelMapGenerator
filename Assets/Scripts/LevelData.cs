@@ -25,7 +25,9 @@ public class LevelData
 	public string levelName;
 	public List<SerializableVector3> spList; //spawn points and teamID that can spawn there //(point.x,point.y, teamId) fucking serialization
 	public List<int> tileTypeList; //what tile type, used for exiting maps in WA. can be used for other things (traps, treasures, etc. later)
-	public List<PlayerUnit> mapUnitList = new List<PlayerUnit>(); //list of pu for the map
+	//public List<PlayerUnit> mapUnitList = new List<PlayerUnit>(); //list of pu for the map
+	const int TILE_TYPE_DEFAULT = 0;
+	const int TILE_TYPE_EXIT_MAP = 1;
 
 	public LevelData() { }
 
@@ -35,7 +37,7 @@ public class LevelData
 		this.levelName = "gridworldMap";
 		this.tileTypeList = new List<int>();
 		this.spList = new List<SerializableVector3>();
-		this.mapUnitList = new List<PlayerUnit>();
+		//this.mapUnitList = new List<PlayerUnit>();
 
 		int x = mapX;
 		int y = mapY;
@@ -47,7 +49,7 @@ public class LevelData
 			for (int j = 0; j < y; j++)
 			{
 				this.tiles.Add(new SerializableVector3(i, z, j)); //height is second, y is third //board.tiles.Add(new SerializableVector3(t.pos.x, t.height, t.pos.y));
-				this.tileTypeList.Add(NameAll.TILE_TYPE_DEFAULT);
+				this.tileTypeList.Add(TILE_TYPE_DEFAULT);
 			}
 		}
 
@@ -77,11 +79,11 @@ public class LevelData
 				this.tiles.Add(new SerializableVector3(i, z, j)); //height is second, y is third //board.tiles.Add(new SerializableVector3(t.pos.x, t.height, t.pos.y));
 				if (i == 0 || j == 0 || i == x - 1 || j == y - 1) //set tile type. default for now except edges let you exit map
 				{
-					this.tileTypeList.Add(NameAll.TILE_TYPE_EXIT_MAP);
+					this.tileTypeList.Add(TILE_TYPE_EXIT_MAP);
 				}
 				else
 				{
-					this.tileTypeList.Add(NameAll.TILE_TYPE_DEFAULT);
+					this.tileTypeList.Add(TILE_TYPE_DEFAULT);
 				}
 
 			}
@@ -91,23 +93,23 @@ public class LevelData
 		this.spList = new List<SerializableVector3>(1);
 		//placeholder, x/y/z doesn't matter for first two coordinates, just teh actual values held there
 		//this.spList.Add(new SerializableVector3(this.tiles[0].x, this.tiles[0].z, NameAll.TEAM_ID_WALK_AROUND_GREEN));
-		this.spList.Add(new SerializableVector3(3, 2, NameAll.TEAM_ID_WALK_AROUND_GREEN));
-		this.spList.Add(new SerializableVector3(this.tiles[1].x, this.tiles[1].z, NameAll.TEAM_ID_WALK_AROUND_GREEN));
-		this.spList.Add(new SerializableVector3(this.tiles[4].x, this.tiles[4].z, NameAll.TEAM_ID_WALK_AROUND_NEUTRAL));
-		this.spList.Add(new SerializableVector3(this.tiles[this.tiles.Count - 1].x, this.tiles[this.tiles.Count - 1].z, NameAll.TEAM_ID_WALK_AROUND_RED));
+		//this.spList.Add(new SerializableVector3(3, 2, NameAll.TEAM_ID_WALK_AROUND_GREEN));
+		//this.spList.Add(new SerializableVector3(this.tiles[1].x, this.tiles[1].z, NameAll.TEAM_ID_WALK_AROUND_GREEN));
+		//this.spList.Add(new SerializableVector3(this.tiles[4].x, this.tiles[4].z, NameAll.TEAM_ID_WALK_AROUND_NEUTRAL));
+		//this.spList.Add(new SerializableVector3(this.tiles[this.tiles.Count - 1].x, this.tiles[this.tiles.Count - 1].z, NameAll.TEAM_ID_WALK_AROUND_RED));
 
 		//placeholder for unit generation, just generating one red unit
 		//no unit generated for map if unit has already been defeated
-		if (isFirstMapVisit)
-		{
-			WalkAroundMapGenerator wamg = new WalkAroundMapGenerator();
-			this.mapUnitList = wamg.GenerateRandomUnits(NameAll.TEAM_ID_WALK_AROUND_RED, numUnits: 1);
-		}
-		else
-		{
-			//load existing units from saved data
-			this.mapUnitList = CalcCode.LoadWalkAroundPlayerUnitList(seed, timeInt, mapX, mapY, NameAll.WA_UNIT_SAVE_MAP_LIST);
-		}
+		//if (isFirstMapVisit)
+		//{
+		//	WalkAroundMapGenerator wamg = new WalkAroundMapGenerator();
+		//	this.mapUnitList = wamg.GenerateRandomUnits(NameAll.TEAM_ID_WALK_AROUND_RED, numUnits: 1);
+		//}
+		//else
+		//{
+		//	//load existing units from saved data
+		//	this.mapUnitList = CalcCode.LoadWalkAroundPlayerUnitList(seed, timeInt, mapX, mapY, NameAll.WA_UNIT_SAVE_MAP_LIST);
+		//}
 	}
 
 	public int GetTeamSpawnPointsCount(int teamId)

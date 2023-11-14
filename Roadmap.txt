@@ -1,19 +1,12 @@
 working:
-	pair down mapcreator scipt
-		key parts to break out (for to do later)
-			save, load, UI for menu, ui for editing the actual map
-			new: ui for interacting with foundation model
-				code of interacting with foundation model
-		think through what this script should actually be like and which parts should be pared downa nd related and waht not
-		add in AbilityBuilderObject, AbilityEditScrollListButton
-			
-		hardcode a save path for the nameall part at the top
-		add saving back in later
-		remove campaign stuff
-		probably ineed toa dd in INfoEventArgs script
-			or maybe this is a unity hookup
-		refreshleveldict
+	why isn't existing UI showing up
+	new: ui for interacting with foundation model
+		code of interacting with foundation model
 
+	fill in scene with all the needed objectgs
+
+	camera buttons not showing for the ui
+		can't drag image over
 	
 Main parts
 	unity scene
@@ -88,4 +81,14 @@ https://github.com/AurelianTactics/OpenTactics/blob/main/Assets/Scripts/Model/Po
 
 understand more about chat GPT
 	best way to give code prompts
+
+
+Refactoring potential later things
+		redo NameAll to be less comprehensive and more modulor
+		mapcreator
+			key parts to break out (for to do later)
+				save, load, UI for menu, ui for editing the actual map
+			might need to add back some functionalit y
+		think through what this script should actually be like and which parts should be pared downa nd related and waht not
+
 				

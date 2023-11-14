@@ -50,7 +50,7 @@ public class MapCreator : MonoBehaviour
     public GameObject sampleButton;
     Dictionary<int, LevelData> levelDict = new Dictionary<int, LevelData>();
     LevelLoad levelLoad;//used for saving the level
-    string currentSaveFilePath = NameAll.MAP_SAVE_CUSTOM_DEFAULT;
+    string currentSaveFilePath = "customDefault";//NameAll.MAP_SAVE_CUSTOM_DEFAULT;
 
     Transform marker
     {
@@ -675,35 +675,35 @@ public class MapCreator : MonoBehaviour
         AbilityBuilderObject abo;
         currentOptionsType = type;
 
-        if (type == OPTIONS_LIST_DEFAULT)
-        {
-            abo = new AbilityBuilderObject("Change Map Save Directory", "Current Directory is " + currentCampaignDirectoryName, OPTIONS_SELECT_DIRECTORY);
-            retValue.Add(abo);
-            abo = new AbilityBuilderObject("Delete Current Level", "Permanently Delete " + currentLevelData.levelName, OPTIONS_SELECT_DELETE);
-            retValue.Add(abo);
-        }
-        else if (type == OPTIONS_SELECT_DIRECTORY)
-        {
-            abo = new AbilityBuilderObject("Default Map Directory", "Saves to default directory", NameAll.NULL_UNIT_ID);
-            retValue.Add(abo);
-            int zBreak = 0;
-            for (int i = NameAll.CUSTOM_CAMPAIGN_ID_START_VALUE; i <= (NameAll.CUSTOM_CAMPAIGN_ID_START_VALUE + 100); i++)
-            {
-                CampaignCampaign cc = CalcCode.LoadCampaignCampaign(i); //Debug.Log("reached create new campaign " + i);
-                if (cc != null)
-                {
-                    abo = new AbilityBuilderObject("Campaign: " + cc.CampaignName, "", cc.CampaignId); //Debug.Log("testing load");
-                    retValue.Add(abo);
-                }
-                else
-                {
-                    zBreak += 1;
-                }
-                if (zBreak >= 5)
-                    break;
-            }
+        //if (type == OPTIONS_LIST_DEFAULT)
+        //{
+        //    abo = new AbilityBuilderObject("Change Map Save Directory", "Current Directory is " + currentCampaignDirectoryName, OPTIONS_SELECT_DIRECTORY);
+        //    retValue.Add(abo);
+        //    abo = new AbilityBuilderObject("Delete Current Level", "Permanently Delete " + currentLevelData.levelName, OPTIONS_SELECT_DELETE);
+        //    retValue.Add(abo);
+        //}
+        //else if (type == OPTIONS_SELECT_DIRECTORY)
+        //{
+        //    abo = new AbilityBuilderObject("Default Map Directory", "Saves to default directory", NameAll.NULL_UNIT_ID);
+        //    retValue.Add(abo);
+        //    int zBreak = 0;
+        //    for (int i = NameAll.CUSTOM_CAMPAIGN_ID_START_VALUE; i <= (NameAll.CUSTOM_CAMPAIGN_ID_START_VALUE + 100); i++)
+        //    {
+        //        CampaignCampaign cc = CalcCode.LoadCampaignCampaign(i); //Debug.Log("reached create new campaign " + i);
+        //        if (cc != null)
+        //        {
+        //            abo = new AbilityBuilderObject("Campaign: " + cc.CampaignName, "", cc.CampaignId); //Debug.Log("testing load");
+        //            retValue.Add(abo);
+        //        }
+        //        else
+        //        {
+        //            zBreak += 1;
+        //        }
+        //        if (zBreak >= 5)
+        //            break;
+        //    }
 
-        }
+        //}
 
         return retValue;
     }
