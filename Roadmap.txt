@@ -1,12 +1,19 @@
 working:
-	why isn't existing UI showing up
+	TDD
+	copilote usage
+
 	new: ui for interacting with foundation model
 		code of interacting with foundation model
 
 	fill in scene with all the needed objectgs
 
-	camera buttons not showing for the ui
-		can't drag image over
+	how the prompt is going to be used
+		start with text only, copy and paste output into something and run it
+		longer term
+		force a recall to something in unity to reload
+			how will this work in editor
+			how will this work in run time (probably less important)
+		add in images
 	
 Main parts
 	unity scene
@@ -85,10 +92,12 @@ understand more about chat GPT
 
 Refactoring potential later things
 		redo NameAll to be less comprehensive and more modulor
+			more enums, less of this nonsense
 		mapcreator
 			key parts to break out (for to do later)
 				save, load, UI for menu, ui for editing the actual map
 			might need to add back some functionalit y
 		think through what this script should actually be like and which parts should be pared downa nd related and waht not
-
+	bunch of scripts mentioning from the tile up down and dimensions boxes
+		textg related updates
 				
