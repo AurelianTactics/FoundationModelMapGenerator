@@ -1,9 +1,13 @@
 working:
 	TDD
-	copilote usage
+		https://docs.unity3d.com/Packages/com.unity.test-framework@2.0/manual/index.html
+	copilot
 
 	new: ui for interacting with foundation model
 		code of interacting with foundation model
+
+	text box for prompt
+	button for upload image
 
 	fill in scene with all the needed objectgs
 
