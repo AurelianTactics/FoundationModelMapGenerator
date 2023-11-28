@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using Palmmedia.ReportGenerator.Core;
 
 /// <summary>
 /// Controller for the MapBuilder scene
@@ -800,8 +801,57 @@ public class MapCreator : MonoBehaviour
 
 
     }
-    #endregion
+	#endregion
 
- 
+	#region FGGM code
+    /// <summary>
+    /// Set Tiles Data from Dictionary of Ppoint and Tiles
+    /// </summary>
+    /// <param name="tilesDict"></param>
+    void SetLevelFromTiles(Dictionary<Point, Tile> tilesDict)
+    {
+        RefreshMapForNewTiles();
+        PopulateMapCreatorTiles(tilesDict);
+
+		// not implemented yet, would net to set currentLevelData
+        // would have to set currentLevelData here
+        // to do: would either get the other currentLevelData info as args, default args,
+        // fields to add: map X and Y and default name and an empty splist
+        // also have to set tiles to the currentLevelData. is logic for that in mapcreator but
+        // needs to be moved to LevelData
+		//SetInputFieldValues();
+		//ShowSpawnPoints();
+	}
+
+	/// <summary>
+	/// Replacing Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
+	/// With the new tiles Dictionary
+	/// Create() generates the tile gameObject
+	/// t.Load() sets the tile data
+	/// tiles() is cleared earlier
+	/// </summary>
+	void PopulateMapCreatorTiles(Dictionary<Point, Tile> tilesDict)
+    {
+		foreach (KeyValuePair<Point, Tile> kvp in tilesDict)
+        {
+			Tile t = Create();
+			t.Load(kvp.Value);
+			tiles.Add(kvp.Key, t);
+		}
+	}
+
+    /// <summary>
+    /// Clear data for new set of tiles
+    /// </summary>
+    void RefreshMapForNewTiles()
+    {
+		for (int i = transform.childCount - 1; i >= 0; --i)
+			DestroyImmediate(transform.GetChild(i).gameObject);
+		tiles.Clear();
+		spawnPointsList.Clear();
+		team2SpawnPoints = 0;
+		team3SpawnPoints = 0;
+	}
+	#endregion
 
 }

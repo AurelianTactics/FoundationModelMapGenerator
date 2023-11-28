@@ -55,6 +55,7 @@ public class LevelData
 
 	}
 
+
 	//randomized, used for WA mode
 	public LevelData(string level_string, int seed, int timeInt, int mapX, int mapY, bool isFirstMapVisit)
 	{

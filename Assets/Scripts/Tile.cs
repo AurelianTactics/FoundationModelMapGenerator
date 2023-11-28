@@ -151,6 +151,22 @@ public class Tile : MonoBehaviour
 		Match();
 	}
 
+	/// create a tile from a tile object
+	public void Load(Tile t)
+	{
+		this.pos = t.pos;
+		this.height = t.height;
+		Match();
+		//this.content = t.content;
+		//this.prev = t.prev;
+		//this.distance = t.distance;
+		//this.prevDict = t.prevDict;
+		//this.distanceDict = t.distanceDict;
+		//this.unitId = t.unitId;
+		//this.pickUpId = t.pickUpId;
+		//this.tileType = t.tileType;
+	}
+
 	/// <summary>
 	/// Load the Tile. I think tiles are loaded when created by the board
 	/// </summary>

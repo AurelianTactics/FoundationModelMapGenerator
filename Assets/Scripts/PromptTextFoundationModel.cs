@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AiToolbox;
 
 /// <summary>
 /// This class sends a prompt to a Foundation Model and receives a response.
@@ -12,6 +13,21 @@ public class PromptTextFoundationModel : MonoBehaviour
     {
         
     }
+	//ChatGpt.Request();
+
+	// This request provides only `completeCallback` and `failureCallback`
+	// parameters. Since the `updateCallback` is not provided, the request
+	// will be completed in one step, and the `completeCallback` will be
+	// called only once, with the full text of the answer.
+	ChatGpt.Request(prompt, parameters,
+					        response => {
+                                Debug.Log("Full response: " + response);
+                            }, (errorCode, errorMessage) => {
+	        var errorType = (ChatGptErrorCodes)errorCode;
+	        Debug.LogError("Error: " + errorType + " - " +
+					        errorMessage);
+    });
+    /*
 
     // Update is called once per frame
     void Update()
@@ -39,4 +55,5 @@ public class PromptTextFoundationModel : MonoBehaviour
     //display the response
     void DisplayResponse()
     { }
+    */
 }
