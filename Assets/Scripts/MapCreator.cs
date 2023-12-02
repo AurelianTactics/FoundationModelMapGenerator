@@ -813,14 +813,9 @@ public class MapCreator : MonoBehaviour
         RefreshMapForNewTiles();
         PopulateMapCreatorTiles(tilesDict);
 
-		// not implemented yet, would net to set currentLevelData
-        // would have to set currentLevelData here
-        // to do: would either get the other currentLevelData info as args, default args,
-        // fields to add: map X and Y and default name and an empty splist
-        // also have to set tiles to the currentLevelData. is logic for that in mapcreator but
-        // needs to be moved to LevelData
-		//SetInputFieldValues();
-		//ShowSpawnPoints();
+        this.currentLevelData = new LevelData(tilesDict);
+        SetInputFieldValues();
+        ShowSpawnPoints();
 	}
 
 	/// <summary>

@@ -368,6 +368,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73114086}
   m_CullTransparentMesh: 0
+--- !u!1 &108673870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 108673871}
+  - component: {fileID: 108673872}
+  m_Layer: 0
+  m_Name: ChatGPTDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &108673871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108673870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 113.87726, y: 42.32794, z: -143.46448}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &108673872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108673870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e8b8c9f163da84081c88756d49e9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+    apiKey: i2Dbb1F3kzy0ITCjEgEuv2RQX2WXtdP0zOgSa5Onu6FmOogoroK
+    apiKeyEncryption: 1
+    apiKeyRemoteConfigKey: openai_api_key
+    apiKeyEncryptionPassword: 121ce352-b0d9-4ef2-a1ef-11ccefa5d6a9
+    model: 0
+    temperature: 1
+    role: 
+    timeout: 0
+    throttle: 0
+    serialized: 1
+  mapCreator: {fileID: 0}
 --- !u!1 &108804625
 GameObject:
   m_ObjectHideFlags: 0

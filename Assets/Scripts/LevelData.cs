@@ -55,6 +55,24 @@ public class LevelData
 
 	}
 
+	/// <summary>
+	/// Create a LevelData from a tiles dictionary
+	/// </summary>
+	/// <param name=""></param>
+	/// <param name=""></param>
+	public LevelData(Dictionary<Point, Tile> tilesDict)
+	{
+		this.levelName = "gridworldMap";
+		this.tileTypeList = new List<int>();
+		this.spList = new List<SerializableVector3>();
+
+		// iterate through dictionary and set tiles and tileTypeList
+		foreach (KeyValuePair<Point, Tile> entry in tilesDict)
+		{
+			this.tiles.Add(new SerializableVector3(entry.Key.x, entry.Value.height, entry.Key.y));
+			this.tileTypeList.Add(TILE_TYPE_DEFAULT);
+		}
+	}
 
 	//randomized, used for WA mode
 	public LevelData(string level_string, int seed, int timeInt, int mapX, int mapY, bool isFirstMapVisit)
