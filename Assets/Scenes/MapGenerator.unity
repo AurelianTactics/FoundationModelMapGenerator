@@ -423,6 +423,7 @@ MonoBehaviour:
     timeout: 0
     throttle: 0
     serialized: 1
+  prompt: Generate a character description
   mapCreator: {fileID: 0}
 --- !u!1 &108804625
 GameObject:
@@ -1110,8 +1111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b9ef42f80e1e14094080209d0d4814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileViewPrefab: {fileID: 0}
-  tileSelectionIndicatorPrefab: {fileID: 0}
+  tileViewPrefab: {fileID: 1000014037306690, guid: 7526ae3df9e5426479b073fdf10d4d42, type: 3}
+  tileSelectionIndicatorPrefab: {fileID: 162466, guid: fd6fe0e017951f64489ca6fe7348f943, type: 3}
   pos:
     x: 0
     y: 0
@@ -2525,7 +2526,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8002e22241b980644ae276163e374970, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e3c4d64d8ee74ed4ab2e24770258b5c7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
