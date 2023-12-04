@@ -81,6 +81,7 @@ public class CameraControls : MonoBehaviour
 		cameraMaxX = 120;
 		cameraMaxZ = 120;
 		smoothing = 5f;
+		Debug.Log("camera controls start");
 	}
 
 	void CheckForObjectAndMoveCamera()
@@ -541,6 +542,7 @@ public class CameraControls : MonoBehaviour
 
 	public void Zoom()
 	{
+		Debug.Log("zooming");
 		SetCameraMoveActive();
 		zoomInt += 1;
 		if (zoomInt > 2)
