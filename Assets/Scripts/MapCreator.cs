@@ -825,7 +825,7 @@ public class MapCreator : MonoBehaviour
 	/// t.Load() sets the tile data
 	/// tiles() is cleared earlier
 	/// </summary>
-	void PopulateMapCreatorTiles(Dictionary<Point, Tile> tilesDict)
+	public void PopulateMapCreatorTiles(Dictionary<Point, Tile> tilesDict)
     {
 		foreach (KeyValuePair<Point, Tile> kvp in tilesDict)
         {

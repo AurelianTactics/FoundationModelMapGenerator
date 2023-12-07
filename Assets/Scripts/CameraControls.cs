@@ -81,7 +81,7 @@ public class CameraControls : MonoBehaviour
 		cameraMaxX = 120;
 		cameraMaxZ = 120;
 		smoothing = 5f;
-		Debug.Log("camera controls start");
+		//Debug.Log("camera controls start");
 	}
 
 	void CheckForObjectAndMoveCamera()
@@ -206,6 +206,7 @@ public class CameraControls : MonoBehaviour
 		}
 		if (cameraSize == 1)
 		{
+			//Debug.Log("Camera Size is " + cameraSize);
 			//Debug.Log("Camera Rotate is " + cameraRotate);
 			ResizeCamera();
 			TestCameraSize();
@@ -236,10 +237,20 @@ public class CameraControls : MonoBehaviour
 		}
 	}
 
+	//void TestCameraSize()
+	//{
+	//	if (camera.orthographicSize == cameraMoveSize)
+	//	{
+	//		cameraSize = 1;
+	//	}
+	//}
+
 	void TestCameraSize()
 	{
-		if (camera.orthographicSize == cameraMoveSize)
+		float precision = 0.1f;
+		if (Mathf.Abs(camera.orthographicSize - cameraMoveSize) < precision)
 		{
+			//Debug.Log("Test Camera Size is " + cameraSize + " " + camera.orthographicSize);
 			cameraSize = 1;
 		}
 	}
@@ -259,6 +270,7 @@ public class CameraControls : MonoBehaviour
 	void ResizeCamera()
 	{
 		camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, cameraMoveSize, smoothing * Time.deltaTime);
+		//Debug.Log("Resize Camera Size is " + camera.orthographicSize + " " + cameraMoveSize);
 	}
 
 	public void SetCameraMoveActive()
@@ -540,11 +552,13 @@ public class CameraControls : MonoBehaviour
 	}
 
 
+	// copilot: debug this function
 	public void Zoom()
 	{
-		Debug.Log("zooming");
+		//Debug.Log("zooming");
 		SetCameraMoveActive();
 		zoomInt += 1;
+		//Debug.Log("zooming " + zoomInt);
 		if (zoomInt > 2)
 		{
 			zoomInt = 0;
@@ -564,6 +578,9 @@ public class CameraControls : MonoBehaviour
 			cameraMoveSize = 5.0f; //4.5f
 		}
 		//camera.orthographicSize = cameraDefaultSize;
+
+		cameraSize = 1;
+		//Debug.Log("zooming " + cameraMoveSize);
 	}
 
 	public void ToggleOverhead()
