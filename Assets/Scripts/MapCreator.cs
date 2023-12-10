@@ -835,10 +835,21 @@ public class MapCreator : MonoBehaviour
 		}
 	}
 
-    /// <summary>
-    /// Clear data for new set of tiles
-    /// </summary>
-    void RefreshMapForNewTiles()
+	public void PopulateMapCreatorTiles(List<SerializableVector3> sv3List)
+	{
+		foreach (var sv3 in sv3List)
+		{
+			Tile t = Create();
+            t.Load(sv3);
+            Point p = new Point((int)sv3.x, (int)sv3.y);
+            tiles.Add(p, t);
+		}
+	}
+
+	/// <summary>
+	/// Clear data for new set of tiles
+	/// </summary>
+	void RefreshMapForNewTiles()
     {
 		for (int i = transform.childCount - 1; i >= 0; --i)
 			DestroyImmediate(transform.GetChild(i).gameObject);
@@ -846,6 +857,16 @@ public class MapCreator : MonoBehaviour
 		spawnPointsList.Clear();
 		team2SpawnPoints = 0;
 		team3SpawnPoints = 0;
+	}
+
+	public void SetLevelFromSerializableVector3List(List<SerializableVector3> sv3List)
+	{
+		RefreshMapForNewTiles();
+		PopulateMapCreatorTiles(sv3List);
+
+		this.currentLevelData = new LevelData(sv3List);
+		SetInputFieldValues();
+		ShowSpawnPoints();
 	}
 	#endregion
 

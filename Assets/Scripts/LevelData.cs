@@ -74,6 +74,20 @@ public class LevelData
 		}
 	}
 
+	public LevelData(List<SerializableVector3> serializableVector3List)
+	{
+		this.levelName = "gridworldMap";
+		this.tileTypeList = new List<int>();
+		this.spList = new List<SerializableVector3>();
+
+		// iterate through dictionary and set tiles and tileTypeList
+		foreach (SerializableVector3 sv3 in serializableVector3List)
+		{
+			this.tiles.Add(sv3);
+			this.tileTypeList.Add(TILE_TYPE_DEFAULT);
+		}
+	}
+
 	//randomized, used for WA mode
 	public LevelData(string level_string, int seed, int timeInt, int mapX, int mapY, bool isFirstMapVisit)
 	{

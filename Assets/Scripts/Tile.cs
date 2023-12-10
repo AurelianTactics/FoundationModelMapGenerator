@@ -186,6 +186,12 @@ public class Tile : MonoBehaviour
 		this.UnitId = NameAll.NULL_UNIT_ID;
 	}
 
+	public void Load(SerializableVector3 v)
+	{
+		Load(new Point((int)v.x, (int)v.z), (int)v.y);
+		this.UnitId = NameAll.NULL_UNIT_ID;
+	}
+
 	/// <summary>
 	/// Load the Tile. I think tiles are loaded when created by the board
 	/// </summary>

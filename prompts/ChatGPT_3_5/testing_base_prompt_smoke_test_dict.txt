@@ -1,25 +1,3 @@
-using AiToolbox;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-
-namespace AiToolboxRuntimeSample
-{
-	public class PromptTextFoundationModel : MonoBehaviour
-	{
-		public Parameters parameters;
-		public string prompt = "Generate a character description";
-
-		[SerializeField]
-		MapCreator mapCreator;
-
-		public TMP_InputField inputField;
-		public TMP_Text chatDisplay;
-
-		bool isNewChat = true;
-
-		string basePrompt = @"
             1.) In C# for a Unity runtime application, create a Dictionary of format Dictionary<Point, Tile> tilesDict();
 	
 			2.) Only generate the dictionary. No preamble response or code. Only the dictionary.
@@ -369,112 +347,14 @@ public class Tile : MonoBehaviour
 
 		    9.) The map is a 2D grid of tiles. The tiles are in a square grid. The tiles are not hexagonal.
 
-		    10.) The resulting map should look like: 
-        ";
-
-		void Start()
-		{
-			//// Check if the API Key is set in the Inspector, just in case.
-			//if (parameters == null || string.IsNullOrEmpty(parameters.apiKey))
-			//{
-			//	const string errorMessage = "Please set the <b>API Key</b> in the <b>ChatGPT Dialogue</b> Game Object.";
-			//	Debug.LogError(errorMessage);
-			//	return;
-			//}
-
-			//// This request provides only `completeCallback` and `failureCallback` parameters. Since the `updateCallback`
-			//// is not provided, the request will be completed in one step, and the `completeCallback` will be called only
-			//// once, with the full text of the answer.
-			//ChatGpt.Request(prompt, parameters, response => { Debug.Log("Full response: " + response); },
-			//				(errorCode, errorMessage) => {
-			//					var errorType = (ChatGptErrorCodes)errorCode;
-			//					Debug.LogError("Error: " + errorType + " - " + errorMessage);
-			//				});
-
-			//// This request provides all three callbacks: `completeCallback`, `updateCallback`, and `failureCallback`.
-			//// Since the `updateCallback` is provided, the request will be completed in multiple steps, and the
-			//// `completeCallback` will be called only once, with the full text of the answer.
-			//ChatGpt.Request(prompt, parameters, response => { Debug.Log("Full response: " + response); },
-			//				(errorCode, errorMessage) => {
-			//					var errorType = (ChatGptErrorCodes)errorCode;
-			//					Debug.LogError("Error: " + errorType + " - " + errorMessage);
-			//				}, chunk => { Debug.Log("Next part of response: " + chunk); });
-
-			isNewChat = true;
-		}
-
-		void OnDestroy()
-		{
-			ChatGpt.CancelAllRequests();
-		}
-
-		void SendPointTileDictToMapCreator(List<SerializableVector3> sv3List)
-		{
+		    10.) The resulting map should look like: a flat square of 2 by 2.
 
 
-			//Old way doesn't work due to not being able to convert LLM output to dictionary
-			//Dictionary<Point, Tile> testTilesDict = new Dictionary<Point, Tile>
-			//{
-			//	{ new Point(0, 0), new Tile { pos = new Point(0, 0), height = 1 } },
-			//	{ new Point(0, 1), new Tile { pos = new Point(0, 1), height = 1 } },
-			//	{ new Point(1, 0), new Tile { pos = new Point(1, 0), height = 1 } },
-			//	{ new Point(1, 1), new Tile { pos = new Point(1, 1), height = 1 } }
-			//};
-
-			//mapCreator.SetLevelFromTiles(testTilesDict);
-
-			var testSv3List = new List<SerializableVector3>
-			{
-				new SerializableVector3(0, 1, 1),
-				new SerializableVector3(0, 1, 1),
-				new SerializableVector3(1, 1, 1),
-				new SerializableVector3(1, 1, 1)
-			};
-
-			mapCreator.SetLevelFromSerializableVector3List(testSv3List);
-			//mapCreator.SetLevelFromSerializableVector3List(sv3List);
-
-		}
-
-		public void SubmitText()
-		{
-			string submitPrompt;
-
-			if( isNewChat)
-				submitPrompt = basePrompt + inputField.text;
-			else
-				submitPrompt = inputField.text;
-
-			// This request provides only `completeCallback` and `failureCallback` parameters. Since the `updateCallback`
-			// is not provided, the request will be completed in one step, and the `completeCallback` will be called only
-			// once, with the full text of the answer.
-			ChatGpt.Request(prompt, parameters, response => { 
-					Debug.Log("Full response: " + response);
-				// stopped here: parse string to dictionary
-				SendPointTileDictToMapCreator(null);
-				},
-				(errorCode, errorMessage) =>
-				{
-					var errorType = (ChatGptErrorCodes)errorCode;
-					Debug.LogError("Error: " + errorType + " - " + errorMessage);
-				});
-
-			
-			SendPointTileDictToMapCreator(null);
-
-			isNewChat = false;
-		}
-
-		public void StartNewConversation()
-		{
-			// Implement the logic to start a new conversation.
-			//chatDisplay.text = "New conversation started.\n";
-			isNewChat = true;
-		}
-
-		public void ClearText()
-		{
-			inputField.text = ""; // Simply clear the input field.
-		}
-	}
-}
+# end prompt. this worked and go rresponze:
+Dictionary<Point, Tile> tilesDict = new Dictionary<Point, Tile>
+{
+    { new Point(0, 0), new Tile { pos = new Point(0, 0), height = 0 } },
+    { new Point(0, 1), new Tile { pos = new Point(0, 1), height = 0 } },
+    { new Point(1, 0), new Tile { pos = new Point(1, 0), height = 0 } },
+    { new Point(1, 1), new Tile { pos = new Point(1, 1), height = 0 } }
+};
