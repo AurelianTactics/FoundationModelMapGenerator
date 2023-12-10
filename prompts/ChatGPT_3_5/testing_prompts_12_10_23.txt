@@ -1,0 +1,131 @@
+1.) Do not include any explanations, only provide a  RFC8259 compliant JSON response.
+
+2.) The JSON response will be a list of the coordinates of a 3D grid of tiles
+
+3.) The JSON attributes are 
+	'x': the x coordinate of the tile
+	'y': the height of the tile. This must be at least 1.
+	'z': the z coordinate of the tile.
+
+4.) The tiles you create should look like:
+
+a 2 x 2 square
+
+me: this works
+response:
+[
+  {
+    "x": 1,
+    "y": 1,
+    "z": 1
+  },
+  {
+    "x": 2,
+    "y": 1,
+    "z": 1
+  },
+  {
+    "x": 2,
+    "y": 1,
+    "z": 2
+  },
+  {
+    "x": 1,
+    "y": 1,
+    "z": 2
+  }
+]
+
+
+1.) Do not include any explanations, only provide a  RFC8259 compliant JSON response.
+
+2.) The JSON response will be a list of the coordinates of a 3D grid of tiles
+
+3.) The JSON attributes are 
+	'x': the x coordinate of the tile
+	'y': the height of the tile. This must be at least 1.
+	'z': the z coordinate of the tile.
+
+4.) The tiles you create should look like:
+
+a circle
+
+me: more like a 3x3 square
+
+[
+  {
+    "x": 0,
+    "y": 1,
+    "z": 0
+  },
+  {
+    "x": 0,
+    "y": 1,
+    "z": 1
+  },
+  {
+    "x": 1,
+    "y": 1,
+    "z": 0
+  },
+  {
+    "x": 1,
+    "y": 1,
+    "z": 1
+  },
+  {
+    "x": -1,
+    "y": 1,
+    "z": 0
+  },
+  {
+    "x": -1,
+    "y": 1,
+    "z": 1
+  },
+  {
+    "x": 0,
+    "y": 1,
+    "z": -1
+  },
+  {
+    "x": 1,
+    "y": 1,
+    "z": -1
+  },
+  {
+    "x": -1,
+    "y": 1,
+    "z": -1
+  }
+]
+
+
+
+
+1.) Do not include any explanations, only provide a  RFC8259 compliant JSON response.
+
+2.) The JSON response will be a list of the coordinates of a 3D grid of tiles
+
+3.) The JSON attributes are 
+	'x': the x coordinate of the tile
+	'y': the height of the tile. This must be at least 1.
+	'z': the z coordinate of the tile.
+
+4.) The tiles you create should look like:
+
+a large circle of diameter 15
+fails
+
+
+a checkerboard of 8x8 where the black tiles are twice the height of the white ones.
+works
+
+repeat conversation fails
+
+a 10 x 10 square where the middle section is empty.
+	kind of works
+
+doesn't get the full picture
+
+triangle with middle missing doesn't work

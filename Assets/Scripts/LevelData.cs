@@ -65,6 +65,7 @@ public class LevelData
 		this.levelName = "gridworldMap";
 		this.tileTypeList = new List<int>();
 		this.spList = new List<SerializableVector3>();
+		this.tiles = new List<SerializableVector3>();
 
 		// iterate through dictionary and set tiles and tileTypeList
 		foreach (KeyValuePair<Point, Tile> entry in tilesDict)
@@ -79,6 +80,7 @@ public class LevelData
 		this.levelName = "gridworldMap";
 		this.tileTypeList = new List<int>();
 		this.spList = new List<SerializableVector3>();
+		this.tiles = new List<SerializableVector3>();
 
 		// iterate through dictionary and set tiles and tileTypeList
 		foreach (SerializableVector3 sv3 in serializableVector3List)

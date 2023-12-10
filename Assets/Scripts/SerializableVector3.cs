@@ -31,18 +31,25 @@ public struct SerializableVector3
     /// <param name="rX"></param>
     /// <param name="rY"></param>
     /// <param name="rZ"></param>
-    public SerializableVector3(float rX, float rY, float rZ)
-    {
-        x = rX;
-        y = rY;
-        z = rZ;
-    }
+    //public SerializableVector3(float rX, float rY, float rZ)
+    //{
+    //    x = rX;
+    //    y = rY;
+    //    z = rZ;
+    //}
 
-    /// <summary>
-    /// Returns a string representation of the object
-    /// </summary>
-    /// <returns></returns>
-    public override string ToString()
+	public SerializableVector3(float x, float y, float z)
+	{
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+	/// <summary>
+	/// Returns a string representation of the object
+	/// </summary>
+	/// <returns></returns>
+	public override string ToString()
     {
         return String.Format("[{0}, {1}, {2}]", x, y, z);
     }

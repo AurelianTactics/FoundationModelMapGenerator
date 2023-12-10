@@ -804,36 +804,36 @@ public class MapCreator : MonoBehaviour
 	#endregion
 
 	#region FGGM code
-    /// <summary>
-    /// Set Tiles Data from Dictionary of Ppoint and Tiles
-    /// </summary>
-    /// <param name="tilesDict"></param>
-    void SetLevelFromTiles(Dictionary<Point, Tile> tilesDict)
-    {
-        RefreshMapForNewTiles();
-        PopulateMapCreatorTiles(tilesDict);
+ //   /// <summary>
+ //   /// Set Tiles Data from Dictionary of Ppoint and Tiles
+ //   /// </summary>
+ //   /// <param name="tilesDict"></param>
+ //   void SetLevelFromTiles(Dictionary<Point, Tile> tilesDict)
+ //   {
+ //       RefreshMapForNewTiles();
+ //       PopulateMapCreatorTiles(tilesDict);
 
-        this.currentLevelData = new LevelData(tilesDict);
-        SetInputFieldValues();
-        ShowSpawnPoints();
-	}
+ //       this.currentLevelData = new LevelData(tilesDict);
+ //       SetInputFieldValues();
+ //       ShowSpawnPoints();
+	//}
 
-	/// <summary>
-	/// Replacing Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
-	/// With the new tiles Dictionary
-	/// Create() generates the tile gameObject
-	/// t.Load() sets the tile data
-	/// tiles() is cleared earlier
-	/// </summary>
-	public void PopulateMapCreatorTiles(Dictionary<Point, Tile> tilesDict)
-    {
-		foreach (KeyValuePair<Point, Tile> kvp in tilesDict)
-        {
-			Tile t = Create();
-			t.Load(kvp.Value);
-			tiles.Add(kvp.Key, t);
-		}
-	}
+	///// <summary>
+	///// Replacing Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
+	///// With the new tiles Dictionary
+	///// Create() generates the tile gameObject
+	///// t.Load() sets the tile data
+	///// tiles() is cleared earlier
+	///// </summary>
+	//public void PopulateMapCreatorTiles(Dictionary<Point, Tile> tilesDict)
+ //   {
+	//	foreach (KeyValuePair<Point, Tile> kvp in tilesDict)
+ //       {
+	//		Tile t = Create();
+	//		t.Load(kvp.Value);
+	//		tiles.Add(kvp.Key, t);
+	//	}
+	//}
 
 	public void PopulateMapCreatorTiles(List<SerializableVector3> sv3List)
 	{
@@ -841,7 +841,7 @@ public class MapCreator : MonoBehaviour
 		{
 			Tile t = Create();
             t.Load(sv3);
-            Point p = new Point((int)sv3.x, (int)sv3.y);
+            Point p = new Point((int)sv3.x, (int)sv3.z);
             tiles.Add(p, t);
 		}
 	}

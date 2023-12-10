@@ -552,13 +552,12 @@ MonoBehaviour:
     apiKeyEncryption: 1
     apiKeyRemoteConfigKey: openai_api_key
     apiKeyEncryptionPassword: 121ce352-b0d9-4ef2-a1ef-11ccefa5d6a9
-    model: 0
+    model: 1
     temperature: 1
     role: 
     timeout: 0
     throttle: 0
     serialized: 1
-  prompt: Generate a character description
   mapCreator: {fileID: 422056234}
   inputField: {fileID: 921668280}
   chatDisplay: {fileID: 48319816}
