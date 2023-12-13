@@ -10,8 +10,11 @@ Based on a user text prompt, generates a map of tiles for use in a Unity applica
 
 ## Examples
 * Prompt: "A 3x3 square"
+* ![Alt text](/examples/foundation_model_3x3.png)
 * Prompt: "A 8x8 checkerboard with the black tiles 5 times the height of the white tiles"
+* ![Alt text](/examples/foundation_model_checkerboard.png)
 * Prompt: "A large square with the middle missing"
+* ![Alt text](/examples/large_square_middle_missing.png)
 
 ## Failures / Improvement
 * Follow up conversations lead to the LLM responding in non-JSON. Model keeps apologizing in non-JSON format rather than generating maps.
