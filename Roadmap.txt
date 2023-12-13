@@ -1,106 +1,13 @@
-working:
+Likely halted for now. Prototyping completed.
 
-	copilot
-
-	new: ui for interacting with foundation model
-		code of interacting with foundation model
-
-	text box for prompt
-	button for upload image
-
-	fill in scene with all the needed objectgs
-
-	how the prompt is going to be used
-		start with text only, copy and paste output into something and run it
-		longer term
-		force a recall to something in unity to reload
-			how will this work in editor
-			how will this work in run time (probably less important)
-		add in images
-	
-Main parts
-	unity scene
-		basic map generator manual functions
-		need to pair down to the basics
-			too many depencies in the script
-	foundation model hook up
-
-
-Functionality Questions
-	how to get this to actually load
-		ie chatGPT produces the code but can I run a code snippet in my existing thing
-			this seems more interesting
-			would need to have the API hook up take the output, grab the code section and write to file
-		or should I ask it to produce the actual dict and just load the dict
-			this seems easier
-			just feed output into a custom loader
-		
-
-2D map builder							
-	from an image or a description produce the tiles needed for a map (or whatever)						
-	can supplement with better tiles for the code and what not						
-							
-	need a scene						
-		need simple UI					
-		need to be able do display					
-		would like the camera things and able to rotate					
-		lighting					
-		materials					
-		text box to access the LLM					
-			some sort of beginning prompt as well				
-			connect first time, send the prompt in				
-			get the response				
-			treat teh response. if response doesn't work do something				
-			if it does work do something				
-			add the yes/no and the results to the training set				
-			some sort of approval/disapproval for how it works				
-			expand to image				
-		be able to save and load maps					
-							
-		i think first thing would be to prototype in chat GPT or copilot if the LLM can even generate the thing					
-			if it is then increse the thresholding				
-							
-		maybe see if this is being done somewhere else					
-			other games/envs/etc hook up
-
-	maybe use some existing code I've written
-https://github.com/AurelianTactics/OpenTactics/blob/main/Assets/Scripts/MapCreator/MapCreator.cs
-	runs scene and edits and display
-https://github.com/AurelianTactics/OpenTactics/blob/main/Assets/Scripts/View%20Model%20Component/Tile.cs
-	list of these is what actuall gets saved
-https://github.com/AurelianTactics/OpenTactics/blob/main/Assets/Scripts/View%20Model%20Component/Board.cs
-	dict of of tiles belongs to this object
-		public Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
-https://github.com/AurelianTactics/OpenTactics/blob/main/Assets/Scripts/Model/LevelData.cs
-https://github.com/AurelianTactics/OpenTactics/blob/main/Assets/Scripts/Model/Point.cs
-
-	create this type of object to save and load
-		DONE THIS IS FEASIBLE start super simple
-			give some examples
-				saved examples
-				Assets/Customs/Levels/Custom/custom_0.dat
-				code example
-			
-					can be simplified to not use some of the fucntions and the WAMG creator
-					or maybe keep both in idk see how it goes
-			so level data more like the save object. which saves a board .tiles so maybe use that
-		
-			give some simplified classes
-			give some example promtpt and output
-			try experimenting with the prompts
-
-understand more about chat GPT
-	best way to give code prompts
-
-
-Refactoring potential later things
-		redo NameAll to be less comprehensive and more modulor
-			more enums, less of this nonsense
-		mapcreator
-			key parts to break out (for to do later)
-				save, load, UI for menu, ui for editing the actual map
-			might need to add back some functionalit y
-		think through what this script should actually be like and which parts should be pared downa nd related and waht not
-	bunch of scripts mentioning from the tile up down and dimensions boxes
-		textg related updates
-				
+Possible Future Steps:
+* Experiment with base prompt and follow up prompts
+* Document, reserach, and troubleshoot successes, failures, and paths for prompt improvement
+* Send images to build map based on
+* Send error response back to foundation model to get response
+* Basic functionality and polish: UI, controls, save, load, chat history, waiting message for model etc
+* More detailed maps: terrain, spawn points, tile/board code type features, etc.
+* Error handling of foundation model response and more forgiving if response is not exact format
+* Work with other models
+* Improved handling of follow up conversations
+* Finetuning with examples
