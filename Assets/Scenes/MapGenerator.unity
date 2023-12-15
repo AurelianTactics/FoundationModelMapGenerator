@@ -548,10 +548,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-    apiKey: i2Dbb1F3kzy0ITCjEgEuv2RQX2WXtdP0zOgSa5Onu6FmOogoroK
-    apiKeyEncryption: 1
-    apiKeyRemoteConfigKey: openai_api_key
-    apiKeyEncryptionPassword: 121ce352-b0d9-4ef2-a1ef-11ccefa5d6a9
+    apiKey: 
+    apiKeyEncryption: 
+    apiKeyRemoteConfigKey: 
+    apiKeyEncryptionPassword: 
     model: 1
     temperature: 1
     role: 
