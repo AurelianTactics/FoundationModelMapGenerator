@@ -1,0 +1,88 @@
+Base prompt
+			1.) Do not include any explanations, only provide a  RFC8259 compliant JSON response.
+
+			2.) The JSON response will be a list of the coordinates of a 3D grid of tiles
+
+			3.) The JSON attributes are 
+				'x': the x coordinate of the tile
+				'y': the height of the tile. This must be at least 1.
+				'z': the z coordinate of the tile.
+
+			4.) The tiles you create should look like:
+
+prompt
+staircase
+
+result
+a diagnol line that grows with each step. Not bad.
+
+p
+a 2x2 staircase that grows 1 height every step
+
+r
+eh kind of? more like 2x4 with one step that is 1x3
+
+p
+a staircase two tiles wide at each step
+
+r
+yeah 2x2 and increasing
+
+p
+a staircase 2 tiles wide and  1 in depth. must have 8 steps.
+
+r
+dead on
+
+p
+a spiral staircase with at least 6 steps
+
+r
+not bad. does spiral and gradually go up
+
+p
+a fancy staircase like you would see in a manson
+
+r
+tossed an error
+
+Base prompt
+			1.) Do not include any explanations, only provide a  RFC8259 compliant JSON response.
+
+			2.) The JSON response will be a list of the coordinates of a 3D grid of tiles
+
+			3.) The JSON attributes are 
+				'x': the x coordinate of the tile
+				'y': the height of the tile. This must be at least 1.
+				'z': the z coordinate of the tile.
+
+			4.) Each tile must have a unique x and z tuple.
+
+			5.) Be creative.
+
+			6.) The tiles you create should look like:
+
+p
+a fancy staircase like you would see in a manson
+
+r
+doesn't error out. kind of unique?
+
+p
+a staircase 2 tiles wide and 1 in depth. must have 8 steps. Be create with the tile surrounding the staircase.
+
+r
+does the staircase in a neat way but nothign around it
+
+p
+a riverbed
+
+r
+ug pretty lame
+
+p
+a canyon with steep walls with a river flowing through it
+
+r
+sort of. not very steep wall
+

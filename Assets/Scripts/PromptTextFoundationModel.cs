@@ -19,6 +19,19 @@ namespace AiToolboxRuntimeSample
 
 		bool isNewChat = true;
 
+		//string basePrompt = @"
+		//	1.) Do not include any explanations, only provide a  RFC8259 compliant JSON response.
+
+		//	2.) The JSON response will be a list of the coordinates of a 3D grid of tiles
+
+		//	3.) The JSON attributes are 
+		//		'x': the x coordinate of the tile
+		//		'y': the height of the tile. This must be at least 1.
+		//		'z': the z coordinate of the tile.
+
+		//	4.) The tiles you create should look like:
+  //      ";
+
 		string basePrompt = @"
 			1.) Do not include any explanations, only provide a  RFC8259 compliant JSON response.
 
@@ -29,9 +42,12 @@ namespace AiToolboxRuntimeSample
 				'y': the height of the tile. This must be at least 1.
 				'z': the z coordinate of the tile.
 
-			4.) The tiles you create should look like:
-        ";
+			4.) Each tile must have a unique x and z tuple.
 
+			5.) Be creative.
+
+			6.) The tiles you create should look like:
+		";
 		void Start()
 		{
 			//// Check if the API Key is set in the Inspector, just in case.
